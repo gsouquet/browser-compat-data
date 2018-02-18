@@ -8,6 +8,8 @@ Run as `npm run render $query $depth $aggregateMode`
 */
 
 const bcd = require('..');
+const fs = require('fs');
+const exec = require('child_process').exec;
 
 var query = process.argv[2];
 var depth = process.argv[3] || 1;
@@ -489,4 +491,43 @@ if (features.length > 0) {
 } else {
   output = s_no_data_found;
 }
-console.log(output);
+
+function open(output) {
+  if (fs.existsSync('/tmp')) {
+
+    const target = '/tmp/mdn-bc-render.html';
+    fs.writeFileSync(target, `
+      <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <title>Browser compat data: ${query}</title>
+          </head>
+          <body>
+            ${output}
+          </body>
+      </html>
+    `);
+
+    let opener;
+    switch (process.platform) {
+      case 'darwin':
+        opener = 'open';
+        break;
+      case 'win32':
+        opener = 'start ""';
+        break;
+      default:
+        opener = path.join(__dirname, '../vendor/xdg-open');
+    }
+
+    return exec(`${opener} "${target}"`);
+
+  } else {
+    fs.mkdirSync('/tmp');
+    open(output);
+  }
+}
+
+// console.log(output);
+open(output);
