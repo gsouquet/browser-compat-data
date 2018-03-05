@@ -1,0 +1,96 @@
+{
+  "api": {
+    "HTMLShadowElement": {
+      "__compat": {
+        "mdn_url": "https://developer.mozilla.org/docs/Web/API/HTMLShadowElement",
+        "support": {
+          "chrome": {
+            "version_added": "35"
+          },
+          "firefox": {
+            "version_added": "28",
+            "notes": [
+              "If Shadow DOM is not enabled in Firefox, <code>&lt;shadow&gt;</code> elements will behave like <code>HTMLUnknownElement</code>."
+            ],
+            "flags": [
+              {
+                "type": "preference",
+                "name": "dom.webcomponents.enabled",
+                "value_to_set": "true"
+              }
+            ]
+          },
+          "ie": {
+            "version_added": false
+          },
+          "opera": {
+            "version_added": "26"
+          },
+          "safari": {
+            "version_added": false
+          },
+          "webview_android": {
+            "version_added": "37"
+          },
+          "chrome_android": {
+            "version_added": "37"
+          },
+          "firefox_android": {
+            "version_added": "28",
+            "notes": [
+              "If Shadow DOM is not enabled in Firefox, <code><shadow></code> elements will behave like <code>HTMLUnknownElement</code>."
+            ],
+            "flags": [
+              {
+                "type": "preference",
+                "name": "dom.webcomponents.enabled",
+                "value_to_set": "true"
+              }
+            ]
+          }
+        },
+        "status": {
+          "experimental": false,
+          "standard_track": true,
+          "deprecated": true
+        }
+      },
+      "getDistributedNodes": {
+        "__compat": {
+          "mdn_url": "https://developer.mozilla.org/docs/Web/API/HTMLShadowElement/getDistributedNodes",
+          "support": {
+            "chrome": {
+              "version_added": "35"
+            },
+            "firefox": {
+              "version_added": false
+            },
+            "ie": {
+              "version_added": false
+            },
+            "opera": {
+              "version_added": "26"
+            },
+            "safari": {
+              "version_added": false
+            },
+            "webview_android": {
+              "version_added": "37"
+            },
+            "chrome_android": {
+              "version_added": "37"
+            },
+            "firefox_android": {
+              "version_added": false
+            }
+          },
+          "status": {
+            "experimental": false,
+            "standard_track": true,
+            "deprecated": true
+          }
+        }
+      }
+    }
+  }
+}
